@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './css/index.css';
-import MenuApp from './components/MenuApp';
+import './stylesheets/index.css';
+import TopAppBar from './components/TopAppBar';
 
-ReactDOM.render(<MenuApp />, document.getElementById('root'));
+ReactDOM.render(<TopAppBar/>, document.getElementById('root'));
