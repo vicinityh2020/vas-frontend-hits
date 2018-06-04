@@ -4,8 +4,11 @@
     "node": true
   },
   "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "parser": "babel-eslint",
   "parserOptions": {
-    "sourceType": "module"
+    "sourceType": "module",
+    "allowImportExportEverywhere": false,
+    "codeFrame": false
   },
   "rules": {
     "no-undef": 1,
@@ -19,7 +22,7 @@
     ],
     "linebreak-style": [
       "error",
-      "unix"
+      "linux"
     ],
     "no-console": "off",
     "quotes": [

@@ -1,0 +1,36 @@
+.menu-title {
+    line-height: 30px;
+    color: #ffffff;
+}
+
+.menu-bar {
+    background: #3367d6;
+    padding: 10px 0;
+    line-height: 22px;
+    text-align: left;
+    vertical-align: middle;
+    position: relative;
+    display: block;
+    color: #ffffff;
+    -webkit-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.4);
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.4);
+}
+
+.menu-hamburger-button {
+    background: #3367d6;
+    border: 0;
+    color: #fff;
+    font-weight: 300;
+    border-radius: 50%;
+    line-height: 22px;
+}
+
+.menu-hamburger-button:active {
+    background: #ffffff !important;
+    color: #4b4b4b !important;
+}
+
+.menu-hamburger-button:focus {
+    background: #ffffff !important;
+    color: #4b4b4b !important;
+}
