@@ -1,6 +1,7 @@
 import React from 'react';
 import MenuBar from './MenuBar';
 import TimeBooking from './TimeBooking';
+import Listings from './Listings';
 import {Grid} from 'react-bootstrap';
 
 class App extends React.Component {
@@ -9,6 +10,7 @@ class App extends React.Component {
             <Grid>
                 <MenuBar/>
                 <TimeBooking/>
+                <Listings/>
             </Grid>
         );
     }

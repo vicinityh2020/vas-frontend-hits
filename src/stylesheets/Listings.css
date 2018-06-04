@@ -1,0 +1,41 @@
+.listings {
+    margin: 0 0;
+    background: #fff;
+    box-shadow: 0 1px 4px #0000004d;
+    border-radius: 5px;
+}
+
+.list-item {
+    padding: 5px 0 15px 0;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.list-item .heading {
+    font-size: 16px;
+    color: #4b4b4b;
+}
+
+.list-item .sub-heading {
+    font-size: 13px;
+    color: #888888;
+}
+
+.list-item .price {
+    color: #12801e;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.list-item .special-marker {
+    font-size: 16px;
+}
+
+.list-item .distance {
+    font-size: 14px;
+    color: #3366d6;
+}
+
+.list-item .distance-sub {
+    font-size: 13px;
+    color: #a0a0a0;
+}
