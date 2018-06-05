@@ -63,26 +63,35 @@ class Listings extends React.Component {
         }
     ];
 
+    getParkingPlaces(fromTime, toTime) {
+
+        let freeParkings = this.listings.filter((p) =>
+            p.startTime >= fromTime && p.endTime <= toTime
+        );
+
+        return (<Row className="listings">
+            {
+                freeParkings.map((obj, i) => {
+                    return (
+                        <Col key={i} xs={12}>
+                            <ListItem
+                                sensorId={obj.sensorId}
+                                startTime={obj.startTime}
+                                endTime={obj.endTime}
+                                streetAddress={obj.streetAddress}
+                                pricePerMinute={obj.pricePerMinute}
+                                distanceInKm={obj.distanceInKm}
+                            />
+                        </Col>
+                    );
+                })
+            }
+        </Row>);
+    }
+
     render() {
         return (
-            <Row className="listings">
-                {
-                    this.listings.map((obj, i) => {
-                        return (
-                            <Col key={i} xs={12}>
-                                <ListItem
-                                    sensorId={obj.sensorId}
-                                    startTime={obj.startTime}
-                                    endTime={obj.endTime}
-                                    streetAddress={obj.streetAddress}
-                                    pricePerMinute={obj.pricePerMinute}
-                                    distanceInKm={obj.distanceInKm}
-                                />
-                            </Col>
-                        );
-                    })
-                }
-            </Row>
+            this.getParkingPlaces(this.props.startTime, this.props.endTime)
         );
     }
 }

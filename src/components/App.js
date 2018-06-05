@@ -1,17 +1,25 @@
 import React from 'react';
-import MenuBar from './MenuBar';
-import TimeBooking from './TimeBooking';
-import Listings from './Listings';
-import {Grid} from 'react-bootstrap';
+import Index from './Index';
+import {Button} from 'react-bootstrap';
 
 class App extends React.Component {
     render() {
         return (
-            <Grid>
-                <MenuBar/>
-                <TimeBooking/>
-                <Listings/>
-            </Grid>
+            <div>
+                <Index/>
+                <Button onClick={() => {
+                    fetch('http://localhost:8080/rest/items/LightColor', {
+                        method: 'POST',
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'text/plain',
+                        },
+                        body: 'ON'
+                    });
+                }}>
+                    Turn
+                </Button>
+            </div>
         );
     }
 }

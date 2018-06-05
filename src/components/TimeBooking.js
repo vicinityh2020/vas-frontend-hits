@@ -1,25 +1,35 @@
 import React from 'react';
 import TimePicker from 'react-bootstrap-time-picker';
 import {Col, Row, Button} from 'react-bootstrap';
+import PropTypes from 'prop-types';
 import '../stylesheets/Time.css';
+import {timeFromInt, timeToInt} from 'time-number';
 
 class TimeBooking extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         this.handleFromTime = this.handleFromTime.bind(this);
         this.handleToTime = this.handleToTime.bind(this);
-        this.state = { fromTime: 0, toTime: 0 };
+        this.state = { fromTime: props.initTime, toTime: (props.endTime) };
     }
 
+    // static propTypes = {
+    //     findParking: PropTypes.object.isFunction,
+    // };
+
     handleFromTime(time) {
-        console.log(time);     // <- prints "3600" if "01:00" is picked
-        this.setState({ fromTime: time });
+        let timeString = timeFromInt(time);
+        console.log(`Selected new from time: ${timeString}`);
+        this.setState({ fromTime: timeString });
+        this.props.updateSelected(timeString, this.state.toTime);
     }
 
     handleToTime(time) {
-        console.log(time);     // <- prints "3600" if "01:00" is picked
-        this.setState({ toTime: time });
+        let timeString = timeFromInt(time);
+        console.log(`Selected new to time: ${timeString}`);
+        this.setState({ toTime: timeString });
+        this.props.updateSelected(this.state.fromTime, timeString);
     }
 
     render() {
@@ -28,10 +38,10 @@ class TimeBooking extends React.Component {
                 <Col xs={6}>
                     <h6>From</h6>
                     <TimePicker
-                        start="10:00"
-                        end="17:00"
+                        start="00:00"
+                        end="23:00"
                         format={24}
-                        step={15}
+                        step={60}
                         onChange={this.handleFromTime}
                         value={this.state.fromTime}
                     />
@@ -39,16 +49,19 @@ class TimeBooking extends React.Component {
                 <Col xs={6}>
                     <h6>To</h6>
                     <TimePicker
-                        start="13:00"
-                        end="17:00"
+                        start="00:00"
+                        end="23:00"
                         format={24}
-                        step={15}
+                        step={60}
                         onChange={this.handleToTime}
                         value={this.state.toTime}
                     />
                 </Col>
                 <Col className="text-center find-parking" xs={12}>
-                    <Button bsStyle="primary">Find Parking</Button>
+                    <Button
+                        onClick={() => this.props.findParking(this.state.fromTime, this.state.toTime)}
+                        bsStyle="primary">Find Parking
+                    </Button>
                 </Col>
             </Row>
         );
