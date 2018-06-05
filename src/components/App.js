@@ -8,16 +8,39 @@ class App extends React.Component {
             <div>
                 <Index/>
                 <Button onClick={() => {
-                    fetch('http://localhost:8080/rest/items/LightColor', {
+                    fetch('http://192.168.1.41:8080/rest/items/LightColor', {
                         method: 'POST',
                         headers: {
                             'Accept': 'application/json',
                             'Content-Type': 'text/plain',
+                            'Origin': '192.168.1.41'
                         },
                         body: 'ON'
-                    });
+                    }).catch(
+                        (error) => {
+                            console.log(error);
+                        }
+                    );
                 }}>
-                    Turn
+                    Turn ON
+                </Button>
+
+                <Button onClick={() => {
+                    fetch('http://192.168.1.41:8080/rest/items/LightColor', {
+                        method: 'POST',
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'text/plain',
+                            'Origin': '192.168.1.41',
+                        },
+                        body: 'OFF'
+                    }).catch(
+                        (error) => {
+                            console.log(error);
+                        }
+                    );
+                }}>
+                    Turn OFF
                 </Button>
             </div>
         );
