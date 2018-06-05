@@ -15,9 +15,13 @@ class ListItem extends React.Component {
     //     distanceInKm: PropTypes.object.isRequired,
     // };
 
+    static demoRedirect() {
+        window.location = '/success';
+    }
+
     render() {
         return (
-            <Row className="list-item">
+            <Row onClick={ListItem.demoRedirect} className="list-item">
                 <Col xs={3}>
                     <div className="distance">
                         {this.props.distanceInKm} km

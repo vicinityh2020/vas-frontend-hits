@@ -1,7 +1,7 @@
 import React from 'react';
-import MenuBar from './MenuBar';
-import TimeBooking from './TimeBooking';
-import Listings from './Listings';
+import MenuBar from '../components/MenuBar';
+import TimeBooking from '../components/TimeBooking';
+import Listings from '../components/Listings';
 import {Grid} from 'react-bootstrap';
 import {timeFromInt} from 'time-number';
 
