@@ -14,7 +14,7 @@ class Confirmation extends React.Component {
     render() {
         return (
             <Grid>
-                <MenuBar/>
+                <MenuBar title="Reserved"/>
                 <ConfirmMessage/>
             </Grid>
         );

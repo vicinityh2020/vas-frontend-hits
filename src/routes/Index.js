@@ -46,7 +46,7 @@ class Index extends React.Component {
     render() {
         return (
             <Grid>
-                <MenuBar/>
+                <MenuBar title="Parking Selection"/>
                 <TimeBooking
                     initTime={this.state.from}
                     endTime={this.state.to}

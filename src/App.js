@@ -1,5 +1,4 @@
 import React from 'react';
-import Index from './routes/Index';
 
 import Routes from './routes/BasicRouter';
 
