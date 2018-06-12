@@ -5,9 +5,34 @@ import {Col, Row, Button, Glyphicon} from 'react-bootstrap';
 class ConfirmMessage extends React.Component {
     constructor(props) {
         super(props);
+
+        this.controlLight = this.controlLight.bind(this);
+        this.handleBack = this.handleBack.bind(this);
     }
 
-    static handleBack() {
+    controlLight(status) {
+        // return fetch('http://192.168.1.49:8080/rest/items/LightColor', {
+        //     method: 'POST',
+        //     headers: {
+        //         'Accept': 'application/json',
+        //         'Content-Type': 'text/plain',
+        //         'Origin': '192.168.1.49'
+        //     },
+        //     body: status
+        // }).catch(
+        //     (error) => {
+        //         console.log(error);
+        //     }
+        // );
+        return true;
+    }
+
+    componentDidMount() {
+        this.controlLight('ON');
+    }
+
+    handleBack() {
+        this.controlLight('OFF');
         window.location = '/';
     }
 
@@ -24,7 +49,7 @@ class ConfirmMessage extends React.Component {
                             Here we will present the user with more details about his parking
                             And the light should have been turned on!
                         </div>
-                        <Button onClick={ConfirmMessage.handleBack} bsStyle="success">
+                        <Button onClick={this.handleBack} bsStyle="success">
                             Back To Index
                         </Button>
                     </Col>
