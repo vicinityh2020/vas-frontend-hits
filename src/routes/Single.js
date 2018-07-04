@@ -10,10 +10,16 @@ class Single extends React.Component {
     constructor(props) {
         super(props);
 
+        // TODO: replace this.listings with actual adapter data once it's ready
         const sensorId = parseInt(this.props.match.params.id);
         this.parkingSpot = this.listings.find((element) => {
             return element.sensorId === sensorId;
         });
+
+        // no element matching the id
+        if (this.parkingSpot == null) {
+            window.location = '/';
+        }
 
         this.state = {
             from: this.parkingSpot.startTime,
