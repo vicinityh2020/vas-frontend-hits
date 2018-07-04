@@ -73,6 +73,8 @@ class Index extends React.Component {
                 });
 
                 console.log(`${this.state.from} <--> ${this.state.to}`);
+            }).catch(e => {
+                console.log('VAS adapter does not seem to be running ...');
             });
         })();
     }

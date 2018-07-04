@@ -5,6 +5,8 @@ import PropTypes from 'prop-types';
 import {timeFromInt} from 'time-number';
 import {LinkContainer} from 'react-router-bootstrap';
 
+import {Link} from 'react-router-dom';
+
 class FinalBookingTime extends React.Component {
 
     constructor(props) {
@@ -55,11 +57,15 @@ class FinalBookingTime extends React.Component {
                     />
                 </Col>
                 <Col className="text-center find-parking" xs={12}>
-                    <LinkContainer to={'/success'}>
+                    <Link to={{ pathname: '/success', state: {
+                        obj: this.props.obj,        // reservation object
+                        from: this.state.fromTime,  // actual from time
+                        to: this.state.toTime,      // actual to time
+                    }}}>
                         <Button style={{marginTop: 10}}>
                             Confirm booking
                         </Button>
-                    </LinkContainer>
+                    </Link>
                 </Col>
             </Row>
         );

@@ -8,6 +8,7 @@ class ConfirmMessage extends React.Component {
 
         this.controlLight = this.controlLight.bind(this);
         this.handleBack = this.handleBack.bind(this);
+        this.cancelReservation = this.cancelReservation.bind(this);
     }
 
     controlLight(status) {
@@ -36,6 +37,10 @@ class ConfirmMessage extends React.Component {
         window.location = '/';
     }
 
+    cancelReservation() {
+
+    }
+
     render() {
         return (
             <Row style={{textAlign: 'center'}} className="time-booking">
@@ -46,11 +51,13 @@ class ConfirmMessage extends React.Component {
                             Parking reserved,
                         </h4>
                         <div className="success-message">
-                            Here we will present the user with more details about his parking
-                            And the light should have been turned on!
+                            <h3>Your reservation id: ${this.props.unique}</h3>
                         </div>
                         <Button onClick={this.handleBack} bsStyle="success">
                             Back To Index
+                        </Button>
+                        <Button onClick={this.cancelReservation} bsStyle="success">
+                            Cancel Reservation
                         </Button>
                     </Col>
                 </div>

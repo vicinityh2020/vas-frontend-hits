@@ -10,16 +10,7 @@ class Single extends React.Component {
     constructor(props) {
         super(props);
 
-        // TODO: replace this.listings with actual adapter data once it's ready
-        const sensorId = parseInt(this.props.match.params.id);
-        this.parkingSpot = this.listings.find((element) => {
-            return element.sensorId === sensorId;
-        });
-
-        // no element matching the id
-        if (this.parkingSpot == null) {
-            window.location = '/';
-        }
+        this.parkingSpot = this.props.location.state.parkingSpot;
 
         this.state = {
             from: this.parkingSpot.startTime,
@@ -42,62 +33,6 @@ class Single extends React.Component {
             this.setState({to: toTime});
         }
     }
-
-    listings = [
-        {
-            sensorId: 12,
-            startTime: '11:00',
-            endTime: '18:00',
-            streetAddress: 'Mossveien 18 A',
-            pricePerMinute: 0.11,
-            distanceInKm: 0.6
-        },
-
-        {
-            sensorId: 5,
-            startTime: '09:00',
-            endTime: '21:00',
-            streetAddress: 'Mossveien 18 A',
-            pricePerMinute: 0.08,
-            distanceInKm: 20.4
-        },
-
-        {
-            sensorId: 70,
-            startTime: '15:00',
-            endTime: '16:00',
-            streetAddress: 'Mossveien 18 A',
-            pricePerMinute: 0.09,
-            distanceInKm: 20.4
-        },
-
-        {
-            sensorId: 31,
-            startTime: '17:00',
-            endTime: '23:40',
-            streetAddress: 'Mossveien 18 A',
-            pricePerMinute: 0.15,
-            distanceInKm: 20.4
-        },
-
-        {
-            sensorId: 25,
-            startTime: '14:00',
-            endTime: '16:00',
-            streetAddress: 'Mossveien 18 A',
-            pricePerMinute: 0.17,
-            distanceInKm: 20.4
-        },
-
-        {
-            sensorId: 48,
-            startTime: '07:00',
-            endTime: '23:00',
-            streetAddress: 'Mossveien 18 A',
-            pricePerMinute: 0.14,
-            distanceInKm: 20.4
-        }
-    ];
 
     render() {
         return (

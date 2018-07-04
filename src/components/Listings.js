@@ -15,40 +15,7 @@ class Listings extends React.Component {
     }
 
     componentDidMount(){
-        // console.log('componentDidMount');
-        // let body = {
-        //     'date': '2018-07-04',
-        //     'from': 31000,
-        //     'to': 61200,
-        // };
-        // (async () => {
-        //     fetch('/api/view/parking-slots/3', {
-        //         method: 'POST',
-        //         body: JSON.stringify(body),
-        //         credentials: 'include',
-        //         headers: {
-        //             'Content-Type': 'application/json',
-        //             'Accept': 'application/json',
-        //         }
-        //     }).then(r => {
-        //         if (r.status === 200) {
-        //             console.log('/api/view/parking-slots/3 returned 200');
-        //             return r.json();
-        //         }
-        //     }).then(json => {
-        //         console.log(json);
-        //
-        //         for (let obj of json['body']) {
-        //             obj['start_time'] = obj['start_time'].slice(0, -3);
-        //             obj['end_time'] = obj['end_time'].slice(0, -3);
-        //         }
-        //
-        //         this.setState({listings: json['body']});
-        //     });
-        // })();
     }
-
-
 
     render() {
         return <Row className="listings">

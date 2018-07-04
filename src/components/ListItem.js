@@ -1,28 +1,16 @@
 import React from 'react';
 import {Row, Col, Glyphicon} from 'react-bootstrap';
 import PropTypes from 'prop-types';
+import {Link} from 'react-router-dom';
 
 import '../stylesheets/Listings.css';
 import {LinkContainer} from 'react-router-bootstrap';
 
 class ListItem extends React.Component {
 
-    // static propTypes = {
-    //     sensorId: PropTypes.object.isRequired,
-    //     startTime: PropTypes.object.isRequired,
-    //     endTime: PropTypes.object.isRequired,
-    //     streetAddress: PropTypes.object.isRequired,
-    //     pricePerMinute: PropTypes.object.isRequired,
-    //     distanceInKm: PropTypes.object.isRequired,
-    // };
-
-    static demoRedirect() {
-        window.location = '/success';
-    }
-
     render() {
         return (
-            <LinkContainer to={`parking-booking/${this.props.sensorId}`}>
+            <Link to={{ pathname: `parking-booking/${this.props.sensorId}`, state: { parkingSpot: this.props} }}>
                 <Row className="list-item">
                     <Col xs={3}>
                         <div className="distance">
@@ -43,7 +31,7 @@ class ListItem extends React.Component {
                         <div>{this.props.pricePerMinute} per minute</div>
                     </Col>
                 </Row>
-            </LinkContainer>
+            </Link>
         );
     }
 }
