@@ -6,39 +6,37 @@ class ConfirmMessage extends React.Component {
     constructor(props) {
         super(props);
 
-        this.controlLight = this.controlLight.bind(this);
         this.handleBack = this.handleBack.bind(this);
         this.cancelReservation = this.cancelReservation.bind(this);
-    }
 
-    controlLight(status) {
-        // return fetch('http://192.168.1.49:8080/rest/items/LightColor', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Accept': 'application/json',
-        //         'Content-Type': 'text/plain',
-        //         'Origin': '192.168.1.49'
-        //     },
-        //     body: status
-        // }).catch(
-        //     (error) => {
-        //         console.log(error);
-        //     }
-        // );
-        return true;
-    }
-
-    componentDidMount() {
-        this.controlLight('ON');
+        this.state = {
+            cancelled: false
+        };
     }
 
     handleBack() {
-        this.controlLight('OFF');
         window.location = '/';
     }
 
     cancelReservation() {
-
+        (async () => {
+            fetch(`/api/cancel/parking-res/${this.props.unique}`, {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(r => {
+                if (r.status === 200) {
+                    this.setState(
+                        {cancelled: true}
+                    );
+                }
+            }).catch(
+                (error) => {
+                    console.log(error);
+                }
+            );
+        })();
     }
 
     render() {
