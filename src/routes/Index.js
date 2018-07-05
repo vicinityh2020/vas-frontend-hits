@@ -60,6 +60,10 @@ class Index extends React.Component {
             }).then(json => {
                 console.log(json);
 
+                for (let step = 0; step < json['body'].length; step++) {
+                    console.log('STEP');
+                }
+
                 for (let obj of json['body']) {
                     obj['start_time'] = obj['start_time'].slice(0, -3);
                     obj['end_time'] = obj['end_time'].slice(0, -3);

@@ -51,7 +51,7 @@ class ConfirmMessage extends React.Component {
                             Parking reserved,
                         </h4>
                         <div className="success-message">
-                            <h3>Your reservation id: ${this.props.unique}</h3>
+                            <h4>Your reservation id: {this.props.unique}</h4>
                         </div>
                         <Button onClick={this.handleBack} bsStyle="success">
                             Back To Index
