@@ -3,29 +3,33 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "babel-eslint": "^8.2.3",
-    "eslint": "^4.19.1",
+    "babel-eslint": "^9.0.0",
+    "eslint": "^5.0.0",
     "eslint-plugin-react": "^7.8.2",
-    "moment": "^2.22.1",
-    "prop-types": "^15.6.1",
-    "react": "^16.3.2",
+    "moment": "^2.29.4",
+    "prop-types": "^15.6.2",
+    "react": "^16.5.0",
     "react-bootstrap": "^0.32.1",
     "react-bootstrap-time-picker": "^1.0.3",
-    "react-dom": "^16.3.2",
+    "react-dom": "^16.5.0",
     "react-router-bootstrap": "^0.24.4",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "1.1.4",
-    "time-number": "^1.1.0"
+    "react-scripts": "5.0.0",
+    "time-number": "^1.1.0",
+    "@snyk/protect": "latest"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prepare": "npm run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "proxy": {
     "/api/*": {
       "target": "http://localhost:8050"
     }
-  }
+  },
+  "snyk": true
 }
